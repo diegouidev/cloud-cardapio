@@ -157,6 +157,9 @@ checkoutBtn.addEventListener("click", function(){
     const phone = "+5585998532868"
 
     window.open(`http://wa.me/${phone}?text=${message} Endereço: ${addressInput.value}`, "_blank")
+
+    cart = []
+    updateCartModal()
 })
 
 // verificar a hora e manipular o card horario
