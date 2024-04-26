@@ -134,11 +134,11 @@ addressInput.addEventListener("input", function(event){
 
 checkoutBtn.addEventListener("click", function(){
 
-    // const isOpen = checkRestauranteOpen()
-    // if(isOpen) {
-    //     alert("restaurante fechado no momento!")
-    //     return
-    // }
+    const isOpen = checkRestauranteOpen()
+    if(isOpen) {
+        alert("restaurante fechado no momento!")
+        return
+    }
 
     if(cart.length === 0) return
     if(addressInput.value === ""){
