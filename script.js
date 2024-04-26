@@ -134,11 +134,11 @@ addressInput.addEventListener("input", function(event){
 
 checkoutBtn.addEventListener("click", function(){
 
-    const isOpen = checkRestauranteOpen()
-    if(isOpen) {
-        alert("restaurante fechado no momento!")
-        return
-    }
+    // const isOpen = checkRestauranteOpen()
+    // if(isOpen) {
+    //     alert("restaurante fechado no momento!")
+    //     return
+    // }
 
     if(cart.length === 0) return
     if(addressInput.value === ""){
@@ -146,7 +146,17 @@ checkoutBtn.addEventListener("click", function(){
         addressInput.classList.add("border-red-600")
         return
     }
-    
+
+    // Enviar pedido para o whatsapp
+    const cartItem= cart.map((item) => {
+        return (
+            `${item.name} Quantidade: (${item.quantity}) Preço:${item.price} |`
+        )
+    }).join("")
+    const message = encodeURIComponent(cartItem)
+    const phone = "+5585998532868"
+
+    window.open(`http://wa.me/${phone}?text=${message} Endereço: ${addressInput.value}`, "_blank")
 })
 
 // verificar a hora e manipular o card horario
