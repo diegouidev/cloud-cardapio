@@ -133,10 +133,37 @@ addressInput.addEventListener("input", function(event){
 
 
 checkoutBtn.addEventListener("click", function(){
+
+    const isOpen = checkRestauranteOpen()
+    if(isOpen) {
+        alert("restaurante fechado no momento!")
+        return
+    }
+
     if(cart.length === 0) return
     if(addressInput.value === ""){
         addressWarn.classList.remove("hidden")
         addressInput.classList.add("border-red-600")
         return
     }
+    
 })
+
+// verificar a hora e manipular o card horario
+function checkRestauranteOpen() {
+    const data = new Date()
+    const hora = data.getHours()
+    return hora >= 18 && hora < 22
+    // true restarurante aberto
+}
+
+const spanItem = document.getElementById("date-span")
+const isOpen = checkRestauranteOpen()
+
+if(isOpen){
+    spanItem.classList.remove("bg-red-500")
+    spanItem.classList.add("bg-green-500")
+} else {
+    spanItem.classList.remove("bg-green-500")
+    spanItem.classList.add("bg-red-500")
+}
