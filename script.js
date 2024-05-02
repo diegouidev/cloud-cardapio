@@ -147,7 +147,7 @@ checkoutBtn.addEventListener("click", function () {
       position: "right", // `left`, `center` or `right`
       stopOnFocus: true, // Prevents dismissing of toast on hover
       style: {
-        background: "linear-gradient(#ef4444)",
+        background: "#ef4444",
       },
     }).showToast();
     return;
